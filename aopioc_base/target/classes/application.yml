@@ -1,0 +1,28 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: aopioc‐base #指定服务名
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/tmall?characterEncoding=utf-8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+
+  jpa:
+      show-sql: true
+  #    open-in-view: true
+      database-platform: org.hibernate.dialect.MySQL5Dialect
+      hibernate:
+        use-new-id-generator-mappings: true
+  dubbo:
+    application:
+      name: base_provider
+    registry:
+      address: zookeeper://127.0.0.1:2181
+    protocol:
+      port: 20880
+      name: dubbo
+    scan: com.aopioc.service
